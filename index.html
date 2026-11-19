@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронирование аудиторий и оборудования</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <span class="logo-blue">Ресурс</span><span class="logo-dark">.Колледж</span>
+            </div>
+            <nav class="nav">
+                <a href="#rooms" class="nav-link">Кабинеты</a>
+                <a href="#equipment" class="nav-link">Оборудование</a>
+                <a href="#booking-form-section" class="nav-link">Подать заявку</a>
+                <a href="#" id="my-bookings-nav" class="nav-link" style="display: none; color: var(--primary-blue); font-weight: 700;">Мои заявки</a>
+            </nav>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <span id="user-status" style="font-size: 13px; color: #555;">Вы не вошли в систему</span>
+                <button id="open-auth-btn" class="btn btn-outline">Личный кабинет</button>
+                <button id="logout-btn" class="btn btn-outline" style="display: none;">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Бронирование аудиторий и оборудования для занятий</h1>
+            <p class="hero-subtitle">Электронный сервис для преподавателей колледжа. Резервируйте специализированные лаборатории, лекционные залы и технические средства.</p>
+            <a href="#booking-form-section" class="btn btn-primary" style="background-color: #ffffff; color: var(--dark-blue);">Оформить заявку на время</a>
+        </div>
+    </section>
+    <section id="rooms" class="section">
+        <div class="container">
+            <h2 class="section-title">Свободные аудитории и лаборатории</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="jpg/3.jpg" alt="IT-Лаборатория" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">IT-Лаборатория</h3>
+                        <p class="card-text">30 современных рабочих мест с предустановленным софтом для программирования, сетевого администрирования и 3D-моделирования.</p>
+                        <div class="card-footer">
+                            <span class="card-status">Доступно для брони</span>
+                            <button class="btn btn-outline select-item-btn" data-item="Компьютерный класс (№ 302)">Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="jpg/4.jpg" alt="Медиастудия" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Медиастудия</h3>
+                        <p class="card-text">Пространство со звукоизоляцией для записи видеолекций, вебинаров и подкастов. Оборудовано хромакеем и профессиональным светом.</p>
+                        <div class="card-footer">
+                            <span class="card-status">Доступно для брони</span>
+                            <button class="btn btn-outline select-item-btn" data-item="Медиастудия">Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="jpg/5.jpg" alt="Робоцентр" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Робоцентр</h3>
+                        <p class="card-text">Класс для практических занятий по робототехнике, микроэлектронике и схемотехнике. Есть паяльные станции и отладочные платы.</p>
+                        <div class="card-footer">
+                            <span class="card-status">Доступно для брони</span>
+                            <button class="btn btn-outline select-item-btn" data-item="Робоцентр">Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="jpg/6.jpg" alt="Смарт-Лекторий" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Смарт-Лекторий</h3>
+                        <p class="card-text">Зал для лекций на 80 мест с большой интерактивной панелью, беспроводными микрофонами и системой климат-контроля.</p>
+                        <div class="card-footer">
+                            <span class="card-status">Доступно для брони</span>
+                            <button class="btn btn-outline select-item-btn" data-item="Смарт-Лекторий">Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="jpg/7.jpg" alt="Техно-Коворкинг" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Техно-Коворкинг</h3>
+                        <p class="card-text">Зона свободной коллективной работы студентов и преподавателей. Маркерные стены, флипчарты, ноутбуки и быстрый Wi-Fi.</p>
+                        <div class="card-footer">
+                            <span class="card-status">Доступно для брони</span>
+                            <button class="btn btn-outline select-item-btn" data-item="Техно-Коворкинг">Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="jpg/301.jpg" alt="Цифровая лаборатория" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Цифровая лаборатория</h3>
+                        <p class="card-text">Пространство для индивидуальной и проектной работы студентов. Современные компьютеры, настенные мониторы и быстрый Wi-Fi.</p>
+                        <div class="card-footer">
+                            <span class="card-status">Доступно для брони</span>
+                            <button class="btn btn-outline select-item-btn" data-item="Техно-Коворкинг">Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="jpg/56.jpg" alt="Переговорная комната" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Переговорная комната</h3>
+                        <p class="card-text">Уютный кабинет для совещаний, защиты проектов и работы в малых группах. Большой экран для презентаций, флипчарт и ВКС-система.</p>
+                        <div class="card-footer">
+                            <span class="card-status">Доступно для брони</span>
+                            <button class="btn btn-outline select-item-btn" data-item="Техно-Коворкинг">Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="jpg/99.jpg" alt="VR-пространство" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">VR-пространство</h3>
+                        <p class="card-text">Аудитория для работы с виртуальной и дополненной реальностью. Шлемы VR, мощные графические станции и трекинг-система.</p>
+                        <div class="card-footer">
+                            <span class="card-status">Доступно для брони</span>
+                            <button class="btn btn-outline select-item-btn" data-item="Техно-Коворкинг">Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="jpg/77.jpg" alt="Актовый зал" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Актовый зал</h3>
+                        <p class="card-text">Просторный зал для конференций, хакатонов и крупных мероприятий. Сцена, проектор, профессиональный звук и радиомикрофоны.</p>
+                        <div class="card-footer">
+                            <span class="card-status">Доступно для брони</span>
+                            <button class="btn btn-outline select-item-btn" data-item="Техно-Коворкинг">Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="jpg/88.jpg" alt="Инженерная мастерская" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Инженерная мастерская</h3>
+                        <p class="card-text">Лаборатория для прототипирования и сборки устройств. 3D-принтеры, паяльные станции, измерительные приборы и наборы инструментов.</p>
+                        <div class="card-footer">
+                            <span class="card-status">Доступно для брони</span>
+                            <button class="btn btn-outline select-item-btn" data-item="Техно-Коворкинг">Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="jpg/9.jpg" alt="Центр симуляций" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Центр симуляций</h3>
+                        <p class="card-text">Специализированный кабинет с тренажерами и симуляторами для отработки профессиональных практических навыков.</p>
+                        <div class="card-footer">
+                            <span class="card-status">Доступно для брони</span>
+                            <button class="btn btn-outline select-item-btn" data-item="Центр симуляций">Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipment" class="section section-light">
+        <div class="container">
+            <h2 class="section-title">Переносное учебное оборудование</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="jpg/8.jpg" alt="Мобильный проектор" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Мобильный проектор (Комплект)</h3>
+                        <p class="card-text">Переносной проектор, кабели питания, HDMI-провод, пульт ДУ и перекатной экран.</p>
+                        <div class="card-footer">
+                            <span class="card-status">В наличии</span>
+                            <button class="btn btn-outline select-item-btn" data-item="Мобильный проектор">Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="jpg/54.jpg" alt="Ноутбук преподавателя" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Ноутбук преподавателя</h3>
+                        <p class="card-text">Предустановлены демонстрационные программы, офисный пакет и доступ к локальной сети.</p>
+                        <div class="card-footer">
+                            <span class="card-status">В наличии</span>
+                            <button class="btn btn-outline select-item-btn" data-item="Ноутбук преподавателя">Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="jpg/55.jpg" alt="Радиомикрофон петличный" class="card-image">
+                    <div class="card-content">
+                        <h3 class="card-title">Радиомикрофон петличный</h3>
+                        <p class="card-text">Беспроводная система фиксации голоса, передатчик и запасные аккумуляторы.</p>
+                        <div class="card-footer">
+                            <span class="card-status">В наличии</span>
+                            <button class="btn btn-outline select-item-btn" data-item="Радиомикрофон петличный">Выбрать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </section>
+    <section id="booking-form-section" class="section section-booking">
+        <div class="container booking-wrapper">
+            <div class="booking-info">
+                <h2 class="booking-title">Онлайн-заявка на аренду</h2>
+                <p class="booking-desc">Для отправки заявки и отслеживания её статуса необходимо войти в личный кабинет преподавателя.</p>
+                <ul class="booking-rules-list">
+                    <li>Бронирование осуществляется минимум за 2 часа до начала занятия.</li>
+                    <li>После отправки заявка сразу появится в разделе «Мои заявки».</li>
+                    <li>Вы можете отменить или удалить любую свою заявку в личном кабинете.</li>
+                </ul>
+            </div>
+
+            <div class="booking-form-container">
+                <form id="booking-form" class="booking-form">
+                    <div class="form-group">
+                        <label for="teacher-name">ФИО Преподавателя</label>
+                        <input type="text" id="teacher-name" placeholder="Иванов Иван Иванович" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-item">Что необходимо забронировать?</label>
+                        <select id="booking-item" required>
+                            <option value="">Выберите из списка...</option>
+                            <option value="IT-Лаборатория">IT-Лаборатория</option>
+                            <option value="Медиастудия">Медиастудия</option>
+                            <option value="Робоцентр">Робоцентр</option>
+                            <option value="Смарт-Лекторий">Смарт-Лекторий</option>
+                            <option value="Техно-Коворкинг">Техно-Коворкинг</option>
+                            <option value="Цифровая лаборатория">Цифровая лаборатория</option>
+                            <option value="Переговорная комната">Переговорная комната</option>
+                            <option value="VR-пространство">VR-пространство</option>
+                            <option value="Актовый зал">Актовый зал</option>
+                            <option value="Инженерная мастерская">Инженерная мастерская</option>
+                            <option value="Центр симуляций">Центр симуляций</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-datetime">Дата и время бронирования</label>
+                        <input type="datetime-local" id="booking-datetime" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Отправить заявку в учебную часть</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div>© 2026 Внутренняя система бронирования колледжа</div>
+            <div>Техническая поддержка: it-support@college.ru</div>
+        </div>
+    </footer>
+
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-window">
+            <button class="modal-close" id="close-auth-modal">&times;</button>
+            <h3 class="modal-title">Личный кабинет</h3>
+            <p class="modal-subtitle">Авторизуйтесь в системе бронирования</p>
+            
+            <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;">
+                <button type="button" class="tab-btn" id="tab-login" style="border-bottom: 2px solid var(--primary-blue);">Вход</button>
+                <button type="button" class="tab-btn" id="tab-register">Регистрация</button>
+            </div>
+
+            <form id="login-form" class="modal-form">
+                <div class="form-group">
+                    <label>Логин</label>
+                    <input type="text" id="login-username" required>
+                </div>
+                <div class="form-group">
+                    <label>Пароль</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Войти</button>
+            </form>
+
+            <form id="register-form" class="modal-form" style="display: none;">
+                <div class="form-group">
+                    <label>Придумайте Логин</label>
+                    <input type="text" id="reg-username" required>
+                </div>
+                <div class="form-group">
+                    <label>Придумайте Пароль</label>
+                    <input type="password" id="reg-password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="bookings-modal" class="modal-overlay">
+        <div class="modal-window" style="max-width: 600px;">
+            <button class="modal-close" id="close-bookings-modal">&times;</button>
+            <h3 class="modal-title">Мои заявки</h3>
+            <p class="modal-subtitle">Список ваших активных бронирований</p>
+            <div id="bookings-list" class="bookings-list">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
