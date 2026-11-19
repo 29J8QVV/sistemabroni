@@ -6,13 +6,14 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Подключение к PostgreSQL
+// Подключение к PostgreSQL (с поддержкой SSL для облачных БД)
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
   database: process.env.DB_DATABASE,
   password: process.env.DB_PASSWORD,
   port: process.env.DB_PORT,
+  ssl: process.env.DB_SSL === 'false' ? false : { rejectUnauthorized: false }
 });
 
 // Проверка подключения и автоматическое создание таблиц
@@ -44,6 +45,7 @@ pool.connect(async (err, client, release) => {
   }
   release();
 });
+
 // Настройка CORS
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -55,7 +57,7 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static(__dirname));
 
 // 1. Создание заявки
 app.post('/api/book', async (req, res) => {
@@ -98,6 +100,7 @@ app.delete('/api/bookings/:id', async (req, res) => {
     res.status(500).json({ success: false, error: err.message });
   }
 });
+
 // 4. Регистрация пользователя
 app.post('/api/register', async (req, res) => {
   const username = (req.body.username || '').trim();
@@ -146,7 +149,6 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-// Запуск сервера
 app.listen(port, () => {
-  console.log(`🖥️ Сервер запущен на: http://localhost:${port}`);
+  console.log(`🖥️ Сервер запущен на порту: ${port}`);
 });
