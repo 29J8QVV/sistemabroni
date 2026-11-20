@@ -23,6 +23,7 @@
                 <span id="user-status" style="font-size: 13px; color: #555;">Вы не вошли в систему</span>
                 <button id="open-auth-btn" class="btn btn-outline">Личный кабинет</button>
                 <button id="logout-btn" class="btn btn-outline" style="display: none;">Выйти</button>
+                <button id="open-admin-btn" class="btn btn-outline">Админ-панель</button>
             </div>
         </div>
     </header>
@@ -34,6 +35,7 @@
             <a href="#booking-form-section" class="btn btn-primary" style="background-color: #ffffff; color: var(--dark-blue);">Оформить заявку на время</a>
         </div>
     </section>
+
     <section id="rooms" class="section">
         <div class="container">
             <h2 class="section-title">Свободные аудитории и лаборатории</h2>
@@ -61,7 +63,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card">
                     <img src="5.jpg" alt="Робоцентр" class="card-image">
                     <div class="card-content">
@@ -109,6 +110,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="card">
                     <img src="56.jpg" alt="Переговорная комната" class="card-image">
                     <div class="card-content">
@@ -120,7 +122,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card">
                     <img src="99.jpg" alt="VR-пространство" class="card-image">
                     <div class="card-content">
@@ -187,7 +188,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card">
                     <img src="54.jpg" alt="Ноутбук преподавателя" class="card-image">
                     <div class="card-content">
@@ -214,6 +214,7 @@
             </div>
         </div>
     </section>
+
     <section id="booking-form-section" class="section section-booking">
         <div class="container booking-wrapper">
             <div class="booking-info">
@@ -308,6 +309,39 @@
             <h3 class="modal-title">Мои заявки</h3>
             <p class="modal-subtitle">Список ваших активных бронирований</p>
             <div id="bookings-list" class="bookings-list"></div>
+        </div>
+    </div>
+
+    <div id="admin-modal" class="modal-overlay">
+        <div class="modal-window" style="max-width: 750px;">
+            <button class="modal-close" id="close-admin-modal">&times;</button>
+
+            <div id="admin-login-block">
+                <h3 class="modal-title">Вход в админ-панель</h3>
+                <p class="modal-subtitle">Введите логин и пароль администратора</p>
+                <form id="admin-login-form" class="modal-form">
+                    <div class="form-group">
+                        <label>Логин администратора</label>
+                        <input type="text" id="admin-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Пароль</label>
+                        <input type="password" id="admin-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Войти в админ-панель</button>
+                </form>
+            </div>
+
+            <div id="admin-dashboard-block" style="display: none;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <div>
+                        <h3 class="modal-title" style="text-align: left; margin-bottom: 2px;">Все заявки на бронирование</h3>
+                        <p class="modal-subtitle" style="text-align: left; margin-bottom: 0;">Полный список заявок и отправителей</p>
+                    </div>
+                    <button type="button" id="admin-logout-btn" class="btn btn-outline">Выйти из админки</button>
+                </div>
+                <div id="admin-bookings-list" class="bookings-list" style="max-height: 420px;"></div>
+            </div>
         </div>
     </div>
 
