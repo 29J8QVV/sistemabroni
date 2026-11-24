@@ -1,0 +1,26 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:3000"
+    environment:
+      PORT: 3000
+      DB_USER: postgres
+      DB_HOST: db
+      DB_DATABASE: college_booking
+      DB_PASSWORD: 12345678
+      DB_PORT: 5432
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: college_booking
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
